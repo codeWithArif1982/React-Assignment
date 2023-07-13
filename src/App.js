@@ -1,23 +1,22 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from 'react';
+import Content from './components/Content';
+import Footer from './components/Footer';
+import Header from './components/Header';
 
 function App() {
+  const [displayText, setDisplayText] = useState('');
+
+  const handleButtonClick = () => {
+    const textAreaValue = document.getElementById('textarea').value;
+    setDisplayText(textAreaValue);
+  };
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Header title="My React Application" />
+      <Content handleButtonClick={handleButtonClick} />
+      {displayText && <p>{displayText}</p>}
+      <Footer />
     </div>
   );
 }
