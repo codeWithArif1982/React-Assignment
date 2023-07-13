@@ -13,7 +13,7 @@ function App() {
 
   return (
     <div className="App">
-      <Header title="My React Application" />
+      <Header title="React Assignment" />
       <Content handleButtonClick={handleButtonClick} />
       {displayText && <p>{displayText}</p>}
       <Footer />
